@@ -1,8 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Routes from './routes';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'Poppins-Regular': require('./../src/assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Bold': require('./../src/assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-SemiBold': require('./../src/assets/fonts/Poppins-SemiBold.ttf'),
+})
   return (
     <Routes />
   );
