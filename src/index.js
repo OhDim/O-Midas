@@ -2,6 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Routes from './routes';
 import { useFonts } from 'expo-font';
+import 'react-native-gesture-handler';
+
+//LEMBRAR DE ARRUMAR A PORRA DA FONTE
 
 export default function App() {
   const [fontsLoaded] = useFonts({
