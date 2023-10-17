@@ -3,6 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import Routes from './routes';
 import { useFonts } from 'expo-font';
 import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 //LEMBRAR DE ARRUMAR A PORRA DA FONTE
 

@@ -3,8 +3,13 @@ import { Feather } from '@expo/vector-icons'
 import Home from '../pages/Home/index';
 import Search from '../pages/Search/index';
 import Profile from '../pages/Profile/index';
+import Cupons from '../pages/Cupons/index';
+import Login from '../pages/Login';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function TabRoutes(){
     return(
@@ -41,6 +46,17 @@ export default function TabRoutes(){
                 }}
             />
             <Tab.Screen
+                name='cupons'
+                component={Cupons}
+                options={{
+                    tabBarIcon: ({color, size}) => <Feather name='percent' color={color} size={size}></Feather>,
+                    tabBarLabel: 'Cupons',
+                    tabBarLabelStyle:{
+                        fontFamily: "Poppins-SemiBold"
+                    }
+                }}
+            />
+            <Tab.Screen
                 name='profile'
                 component={Profile}
                 options={{
@@ -52,5 +68,17 @@ export default function TabRoutes(){
                 }}
             />
         </Tab.Navigator>
+    )
+}
+
+export function Auth(props) {
+    return(
+        <NavigationContainer>
+            <Stack.Navigator screenOptions={{headerShown: false}}>
+                <Stack.Screen name='Login' component={Login}></Stack.Screen>
+                <Stack.Screen name='TabRoutes' component={TabRoutes}/>
+            </Stack.Navigator>
+
+        </NavigationContainer>
     )
 }

@@ -9,4 +9,3 @@ export const WhiteText = styled.Text`
     color: #ffffff;
     fontFamily: "Poppins-Bold";
 `
-    

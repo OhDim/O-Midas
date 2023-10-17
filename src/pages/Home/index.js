@@ -1,50 +1,36 @@
 import React from "react";
 import { View, StyleSheet, Text, StatusBar, ScrollView } from "react-native"
-import { Container, WhiteText } from "./styles";
+import { Container, WhiteText, Header } from "./styles";
 import { Picker } from "@react-native-picker/picker";
+import FeedCarousel from "./Carousel/Index";
+import { RESTAURANTS, FOODS } from "../../data";
+import ScreenHeader from "../../components/ScreenHeader/index.js"
+import ItensList from "../../components/ItensList";
+import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import HomeHeader from '../../components/HomeHeader';
+
 
 export default function Home(){
     return(   
         <Container>
-            <View style={{
-                flexDirection: "row",
-                alignItems:"center",
-                justifyContent: "center",
-                marginTop: 15,
-            }}>
-                <WhiteText>Shopping União, Mesa 7-B</WhiteText>
-
+            <View>
+                <HomeHeader title="Shopping União, Mesa 7-B" />
 
             </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{marginTop:40}}>
-            <FlatList
-      data={list}
-      horizontal
-      snapToInterval={CARD_WIDTH_SPACING}
-      decelerationRate="fast"
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={i => i.id}
-      renderItem={({item, index}) => {
-        return (
-          <TouchableOpacity
-            style={{
-              marginLeft: spacing.l,
-              marginRight: index === list.length - 1 ? spacing.l : 0,
-            }}>
-            <View style={[styles.card, shadow.dark]}>
-              <FavoriteButton style={styles.favorite} />
-              <View style={styles.imageBox}>
-                <Image source={item.image} style={styles.image} />
-              </View>
-              <View style={styles.titleBox}>
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.location}>{item.location}</Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-        );
-      }}
-    />
+
+            <ScrollView showsHorizontalScrollIndicator={false}>
+                <SectionHeader
+                    title="Populares Nessa Semana"
+                    buttonTitle="Ver Todos"
+                    onPress={() => {}}
+                />
+                <FeedCarousel list={RESTAURANTS}/>
+                <SectionHeader
+                    title="Pratos Famosos"
+                    buttonTitle="Ver Todos"
+                    onPress={() => {}}
+                />
+                <ItensList list={FOODS}/>
             </ScrollView>
         </Container>
     )
